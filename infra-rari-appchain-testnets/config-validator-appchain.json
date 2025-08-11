@@ -1,0 +1,36 @@
+{
+    "chains": {
+        "appchaintestnet": {
+            "name": "appchaintestnet",
+            "domain": 4661,
+            "chainId": 4661,
+            "protocol": "ethereum",
+            "customRpcUrls": "https://appchain.caff.testnet.espresso.network,https://appchaintestnet.rpc.caldera.xyz/http",
+            "rpcUrls": [
+                {
+                    "http": "https://appchain.caff.testnet.espresso.network"
+                },
+                {
+                    "http": "https://appchaintestnet.rpc.caldera.xyz/http"
+                }
+            ],
+            "mailbox": "0x4C58973d0Eb3CeB8aBfd933A1C6EE6f8EA178064",
+            "validatorAnnounce": "0x32732EE409c86bc167666d3CBef96a480CB30375",
+            "interchainGasPaymaster": "0x0000000000000000000000000000000000000000",
+            "merkleTreeHook": "0x185a01B9e08badC1690e06DBFa75F7b1D43E815D"
+        }
+    },
+    "interval": 10,
+    "originChainName": "appchaintestnet",
+    "db": "/mnt/hyperlane_db",
+    "validator": {
+        "type": "hexKey",
+        "key": "<PRIVATE-KEY>"
+    },
+    "checkpointSyncer": {
+        "type": "localStorage",
+        "path": "/checkpoints"
+    },
+    "reorgPeriod": 14,
+    "metricsPort": "9090"
+}

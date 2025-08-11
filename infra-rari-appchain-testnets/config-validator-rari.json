@@ -1,0 +1,40 @@
+{
+    "chains": {
+        "raritestnet": {
+            "name": "raritestnet",
+            "domain": 1918988905,
+            "chainId": 1918988905,
+            "protocol": "ethereum",
+            "customRpcUrls": "https://rari.caff.testnet.espresso.network,https://rari-testnet.calderachain.xyz/http",
+            "rpcUrls": [
+                {
+                    "http": "https://rari.caff.testnet.espresso.network"
+                },
+                {
+                    "http": "https://rari-testnet.calderachain.xyz/http"
+                }
+            ],
+            "signer": {
+                "type": "hexKey",
+                "key": "<PRIVATE-KEY>"
+            },
+            "mailbox": "0xb0bb23B185A7Ba519426C038DEcAFaB4D0a9055b",
+            "validatorAnnounce": "0x74592cf5CD094c55bf5995Fa422D57B4743e13B5",
+            "interchainGasPaymaster": "0x0000000000000000000000000000000000000000",
+            "merkleTreeHook": "0x79b9527497538d3a55C93214253DB45897bDF70F"
+        }
+    },
+    "interval": 10,
+    "originChainName": "raritestnet",
+    "db": "/mnt/hyperlane_db",
+    "validator": {
+        "type": "hexKey",
+        "key": "<PRIVATE-KEY>"
+    },
+    "checkpointSyncer": {
+        "type": "localStorage",
+        "path": "/checkpoints"
+    },
+    "reorgPeriod": 14,
+    "metricsPort": "9090"
+}
