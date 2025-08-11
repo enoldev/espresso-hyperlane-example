@@ -11,13 +11,13 @@ In order for this to work, you will need a Hyperlane validator and relayer corre
 - **Rari Mailbox:** `0xb0bb23B185A7Ba519426C038DEcAFaB4D0a9055b`
 - **Appchain Mailbox:** `0x4C58973d0Eb3CeB8aBfd933A1C6EE6f8EA178064`
 
-**There are two different version of the Counter application: `src/Counter.sol` and `src/CounterBidirectional.sol`.**
+**There are two different versions of the Counter application: `src/Counter.sol` and `src/CounterBidirectional.sol`.**
 
-**NOTE:** In the examples below the Caldera RPCs are used. It is also possible to use the Espresso Caff Nodes for testing, but here we assume the Espresso integrating happens on the Hyperlane infra.
+**NOTE:** In the examples belowm the Caldera RPCs are used. It is also possible to use the Espresso Caff Nodes for testing, but here we assume the Espresso integration happens on the Hyperlane infra.
 
 ## The Counter Application
 
-The simplest version of the application, which hardcodes most of the configuration parameters. In this case, the communicate only happens from Rari to Appchain (Rari -> Appchain).
+The simplest version of the application, which hardcodes most of the configuration parameters. In this case, the communication only happens from Rari to Appchain (Rari -> Appchain).
 
 ### Before Your Begin
 
@@ -91,6 +91,7 @@ forge script script/Counter.s.sol \
 ```
 Replace <PRIVATE-KEY> with the actual private key of the address that you will use to deploy the contract.
 ​
+
 2. The logs will provide you with the smart contract address on Rari. You will use this address to interact with the contract.
 Now, do the same to deploy on Appchain and save the resulting contract address.
 
@@ -113,7 +114,7 @@ cast send <SMART-CONTRACT-ADDRESS-ON-RARI> \
   --private-key <PRIVATE-KEY> --chain 1918988905
 ```
 
-2. Now, Hyperlane will pick up the message and relay it to the destination chain. To verify the counter call the `number()` function on the Appchain’s contract.
+2. Now, Hyperlane will pick up the message and relay it to the destination chain. To verify the counter, call the `number()` function on the Appchain’s contract.
 
 ```bash
 cast call <SMART-CONTRACT-ADDRESS-ON-APPCHAIN> "number()" \
@@ -122,7 +123,7 @@ cast call <SMART-CONTRACT-ADDRESS-ON-APPCHAIN> "number()" \
 
 ## The CounterBidirectional Application
 
-A modified version of the `Counter.sol` contract that can be used for bidirectional communication. The Hyperlane Mailbox is passed in the constructor, so can be used to pass messages **from Rari to Appchain** and **from Appchain to Rari**.
+A modified version of the `Counter.sol` contract that can be used for bidirectional communication. The Hyperlane Mailbox is passed in the constructor, so it can be used to pass messages **from Rari to Appchain** and **from Appchain to Rari**.
 
 ### Deploy the Contracts
 
@@ -154,7 +155,7 @@ You will get the smart contract address on Appchain. Save this for later.
 
 #### Rari -> Appchain
 
-1. Trigger the counter on Rari chain by calling the `sendMessage(...)` function the Appchain's smart contract data:
+1. Trigger the counter on Rari chain by calling the `sendMessage(...)` function with the Appchain's smart contract data:
 
 ```bash
 cast send <SMART-CONTRACT-ADDRESS-ON-RARI> \
@@ -173,7 +174,7 @@ cast call <SMART-CONTRACT-ADDRESS-ON-APPCHAIN> "number()" \
 
 #### Appchain -> Rari
 
-1. Trigger the counter on Appchain by calling the `sendMessage(...)` function the Rari's smart contract data:
+1. Trigger the counter on Appchain by calling the `sendMessage(...)` function with the Rari's smart contract data:
 
 ```bash
 cast send <SMART-CONTRACT-ADDRESS-ON-APPCHAIN> \
