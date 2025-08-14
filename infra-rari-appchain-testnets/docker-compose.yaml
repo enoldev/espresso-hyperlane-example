@@ -9,7 +9,7 @@ services:
     volumes:
       - ./hyperlane_db_validator_rari:/mnt/hyperlane_db
       - ./config-validator-rari.json:/config.json
-      - ./checkpoints:/checkpoints
+      - ./checkpoints-rari:/checkpoints
     command: [ "./validator" ]
     ports:
       - "9091:9090/tcp"
@@ -23,7 +23,7 @@ services:
     volumes:
       - ./hyperlane_db_validator_appchain:/mnt/hyperlane_db
       - ./config-validator-appchain.json:/config.json
-      - ./checkpoints:/checkpoints
+      - ./checkpoints-appchain:/checkpoints
     command: [ "./validator" ]
     ports:
       - "9093:9090/tcp"
